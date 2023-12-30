@@ -149,12 +149,12 @@ const AddCandidate = () => {
         <Box>
           <InputFileUpload onFileChange={handleFileChange} />
         </Box>
-        <input
-          type="file"
-          onChange={(event) =>
-            setPdfFile(event.target.files ? event.target.files[0] : null)
-          }
-        />
+        {/*<input*/}
+        {/*  type="file"*/}
+        {/*  onChange={(event) =>*/}
+        {/*    setPdfFile(event.target.files ? event.target.files[0] : null)*/}
+        {/*  }*/}
+        {/*/>*/}
         <div className="btns">
           <Button
             variant="outlined"

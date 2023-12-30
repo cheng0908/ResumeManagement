@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreactfrontend=self.webpackChunkreactfrontend||[]).push([[303],{6303:(e,s,n)=>{n.r(s),n.d(s,{default:()=>c});var t=n(184);const c=()=>(0,t.jsxs)("div",{className:"content home",children:[(0,t.jsx)("h3",{children:"Welcome To Resume Management System"}),(0,t.jsx)("br",{}),(0,t.jsx)("br",{})]})}}]);
+//# sourceMappingURL=303.5ba272be.chunk.js.map
