@@ -3,6 +3,7 @@ import "./candidates-grid.scss";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import { ICandidate } from "../../types/global.typing";
 import { PictureAsPdfRounded } from "@mui/icons-material";
+import { baseUrl } from "../../constants/url.constant";
 
 const column: GridColDef[] = [
   { field: "id", headerName: "ID", width: 100 },
@@ -16,7 +17,7 @@ const column: GridColDef[] = [
     headerName: "Download",
     width: 150,
     renderCell: (params) => (
-      <a href={"${baseUrl}/Candidate/download/${params.row.resumeUrl}"}>
+      <a href={`${baseUrl}/Candidate/download/${params.row.resumeUrl}`}>
         <PictureAsPdfRounded />
       </a>
     ),
