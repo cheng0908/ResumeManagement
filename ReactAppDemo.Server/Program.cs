@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 var builder = WebApplication.CreateBuilder(args);
 // DB configuration
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("local")
+    options.UseSqlServer(builder.Configuration.GetConnectionString("AzureSQLConnection")
 ));
 
 
