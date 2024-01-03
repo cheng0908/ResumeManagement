@@ -6,13 +6,19 @@ using ReactAppDemo.Server.Core.Context;
 using ReactAppDemo.Server.Core.Dtos.Candidate;
 using ReactAppDemo.Server.Core.Dtos.Job;
 using ReactAppDemo.Server.Core.Entities;
+using Azure.Storage.Files;
+using Azure.Storage.Files.Shares;
+using System.Security.Cryptography.X509Certificates;
+using Microsoft.Extensions.Configuration;
+using System.Security.AccessControl;
 
 namespace ReactAppDemo.Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class CandidateController : ControllerBase
-    {
+    {   
+        private readonly IConfiguration _configuration;
         private ApplicationDbContext _context { get; }
         private IMapper _mapper { get; }
         public CandidateController(ApplicationDbContext context, IMapper mapper)
@@ -35,6 +41,28 @@ namespace ReactAppDemo.Server.Controllers
             }
 
             var resumeUrl = Guid.NewGuid().ToString() + ".pdf";
+            //var storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=cloudstorageonazure;AccountKey=oHlr3qdteTrx1E4J1kNI6l7IdogxbEpK/9D9V34oByNIbaTDo3si22cnXMUOgz0Kz9hZrYPe4O+W+ASthr4j4Q==;EndpointSuffix=core.windows.net";
+            //var shareName = "documents";
+            //var shareServiceClient = new ShareServiceClient(storageConnectionString);
+            //var shareClient = shareServiceClient.GetShareClient(shareName);
+
+            //// Create the directory if it doesn't exist
+            //var directoryClient = shareClient.GetDirectoryClient("pdfs");
+            //await directoryClient.CreateIfNotExistsAsync();
+
+            //// Upload the file to Azure File Share
+            //var fileClient = directoryClient.GetFileClient(resumeUrl);
+            //using (var stream = new MemoryStream())
+            //{
+            //    await pdfFile.CopyToAsync(stream);
+            //    stream.Position = 0;
+            //    await fileClient.UploadAsync(stream, null);
+            //}
+            var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "documents", "pdfs");
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
             var filePath = Path.Combine(Directory.GetCurrentDirectory(), "documents", "pdfs", resumeUrl);
             using (var stream = new FileStream(filePath, FileMode.Create))
             {

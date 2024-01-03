@@ -17,7 +17,7 @@ const column: GridColDef[] = [
     headerName: "Download",
     width: 150,
     renderCell: (params) => (
-      <a href={`${baseUrl}/Candidate/download/${params.row.resumeUrl}`}>
+      <a href={`${baseUrl}Candidate/download/${params.row.resumeUrl}`}>
         <PictureAsPdfRounded />
       </a>
     ),
