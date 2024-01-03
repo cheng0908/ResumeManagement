@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import "./companies.scss";
 import httpModule from "../../helpers/http.module";
 import { ICompany } from "../../types/global.typing";
-import { error } from "console";
 import { Button, CircularProgress } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { Add } from "@mui/icons-material";

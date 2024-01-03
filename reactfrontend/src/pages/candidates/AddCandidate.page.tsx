@@ -9,14 +9,11 @@ import {
   Select,
   TextField,
 } from "@mui/material";
-import { styled } from "@mui/material/styles";
-import { CloudUpload } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import httpModule from "../../helpers/http.module";
 import InputFileUpload from "../../components/candidates/InputFileUpload.component";
-import { error } from "console";
+//import { error } from "console";
 import "./candidates.scss";
-import { eventNames } from "process";
 
 const AddCandidate = () => {
   const [candidate, setCandidates] = useState<ICreateCandidateDto>({
